@@ -106,11 +106,13 @@ function addToCart(id) {
   updateFinalList();
 }
 
-// Update final list textarea
+// Update final list textarea WITH HEADER
 function updateFinalList() {
-  finalList.value = cart.map(item => 
-    `${item.id} | ${item.name} | Qty: ${item.qty}`
-  ).join('\n');
+  const header = "Part Number | Description | Quantity";
+  const lines = cart.map(item =>
+    `${item.id} | ${item.name} | ${item.qty}`
+  );
+  finalList.value = [header, ...lines].join('\n');
 }
 
 // Copy to clipboard
@@ -123,4 +125,3 @@ copyButton.addEventListener('click', () => {
 
 </body>
 </html>
-
