@@ -35,7 +35,7 @@ let products = [];
 let cart = [];
 
 // Load CSV
-fetch('JanusPartsCSV.csv')
+fetch('JanusPartsRevA.csv')
   .then(res => res.text())
   .then(csvText => {
     const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
@@ -123,3 +123,4 @@ copyButton.addEventListener('click', () => {
 
 </body>
 </html>
+
