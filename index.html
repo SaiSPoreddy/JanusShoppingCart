@@ -106,7 +106,7 @@ function addToCart(id) {
   updateFinalList();
 }
 
-// Update final list textarea WITH HEADER
+// Update final list WITH HEADER
 function updateFinalList() {
   const header = "Part Number | Description | Quantity";
   const lines = cart.map(item =>
@@ -115,9 +115,11 @@ function updateFinalList() {
   finalList.value = [header, ...lines].join('\n');
 }
 
-// Copy to clipboard
+// Copy to clipboard (always copies header)
 copyButton.addEventListener('click', () => {
+  finalList.focus();
   finalList.select();
+  document.execCommand('selectAll');
   document.execCommand('copy');
   alert('Copied to clipboard!');
 });
